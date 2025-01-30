@@ -8,7 +8,7 @@ pipeline {
             steps {
                 withCredentials([[
                     $class: 'AmazonWebServicesCredentialsBinding',
-                    Class6-JenkinsTraining: 'AWS_SECRET_ACCESS_KEY' 
+                    credentialsId: 'Class6-JenkinsTraining' 
                 ]]) {
                     sh '''
                     echo "AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID"
@@ -33,7 +33,7 @@ pipeline {
             steps {
                 withCredentials([[
                     $class: 'AmazonWebServicesCredentialsBinding',
-                    Class6-JenkinsTraining: 'AWS_SECRET_ACCESS_KEY'
+                    credentialsId: 'Class6-JenkinsTraining'
                 ]]) {
                     sh '''
                     export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
@@ -48,7 +48,7 @@ pipeline {
                 input message: "Approve Terraform Apply?", ok: "Deploy"
                 withCredentials([[
                     $class: 'AmazonWebServicesCredentialsBinding',
-                    Class6-JenkinsTraining: 'AWS_SECRET_ACCESS_KEY'
+                    credentialsId: 'Class6-JenkinsTraining'
                 ]]) {
                     sh '''
                     export AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
